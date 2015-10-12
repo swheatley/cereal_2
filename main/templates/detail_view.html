@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+
+{% for container in maker.cereal_set.all %}
+    {{ container }}
+    {{ forloop.counter }}
+    <a href="/list_view/{{container.pk}}">{{container.cereal_name}}</a>
+    <br>
+
+{% endfor %}
+        </div>
+    </div>
+
+<br>
+<a href="/list_view"/> Back to Manufacturer</a>
+<h3>{{manufacturer.name}}</h3>
+
+{% for container in cereals.cereal_set.all %}
+    {{container}}
+    {{forloop.counter}}
+    <a href="/list_vew/{{container.pk}}">{{container.cereal_name}}</a>
+{% endfor %}
+<br>
+<a href="/list_view"/> Back to Cereal </a>
+<h3>{{manufacturer.cereal_name}}</h3>
+
+</div>
+{% endblock %}

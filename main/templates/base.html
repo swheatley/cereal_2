@@ -1,0 +1,21 @@
+<!--Contains information that we will want to repeat in all other templates.--> 
+
+{% load static from staticfiles %}
+
+
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <title>{% block title %}{% endblock %}</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static "mystyle.css" %}"/>
+</head>  
+<!-- we are in cereal_list.html -->  
+    <body>
+        {% block body %}
+
+        <!--content from other templates or child templates that will be placed -->
+        {% endblock %}
+    </body>
+</html>  

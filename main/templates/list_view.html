@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block body %} 
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h2> MANUFACTURER </h2>
+
+
+            {% for manufacturer in makers %}
+                <a href="/detail_view/{{ manufacturer.pk}}/">{{manufacturer.name}}</a>
+                <br>
+
+            {% endfor %}
+        </div>
+    
+
+        <div class="col-sm-6">
+            <h2>Cereal</h2>
+
+            {% for cereal in cereals %}
+                 <a href="/detail_view/{{cereal.pk}}/">{{cereal.cereal_name}}</a>
+                 <br>
+    
+             {% endfor %}
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+

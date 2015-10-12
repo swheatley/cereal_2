@@ -1,0 +1,16 @@
+def create_view1(request):
+
+    context = {} 
+    form = SpeedModelForm()
+    context['form'] = form
+
+    if request.method == 'POST':
+        form = SpeedModelForm(request.POST, request.FILES)
+        if form.is_valid():
+            print form.is_valid()
+
+            form.save()
+            return HttpResponseRedirect('/list_view/')
+        else:
+            context['errors'] = form.errors
+    return render_to_response('create_view1.html', context, context_instance=RequestContext(request))
