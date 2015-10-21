@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block body %} 
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-ms-12 col-xs-12">
+                <br>
+                <br>
+                <br>
+                
+            <div id="cereals"> 
+                            
+                {% for cereal in cereals %}
+                    <a href="/cereal_details/{{cereal.pk}}/">{{cereal.cereal_name}}</a>
+                {% endfor %}
+
+            </div>
+                       
+                <div class="homepage">
+                    <a href="/main_page"/> ~ Homepage ~</a>
+                    <h3>{{manufacturer.name}}</h3>
+                </div>
+        </div>
+    </div>
+</div>
+                                
+{% endblock %}
+           
+    
+ 
+
+
+
+
+
+            

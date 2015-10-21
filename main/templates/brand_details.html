@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block body%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-ms-12 col-xs-12">
+                <br>
+                <br>
+            <div class="long_list">
+                {% for cereal in maker.cereal_set.all %}
+                    <h2>{{cereal}}</h2>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock body%}

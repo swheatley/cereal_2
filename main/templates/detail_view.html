@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+
 {% block body %}
 
 <div class="container">
@@ -23,10 +24,10 @@
 {% for container in cereals.cereal_set.all %}
     {{container}}
     {{forloop.counter}}
-    <a href="/list_vew/{{container.pk}}">{{container.cereal_name}}</a>
+    <a href="/brand/{{container.pk}}">{{container.cereal_name}}</a>
 {% endfor %}
 <br>
-<a href="/list_view"/> Back to Cereal </a>
+<a href="/cereal_types/"/> Back to Cereal </a>
 <h3>{{manufacturer.cereal_name}}</h3>
 
 </div>

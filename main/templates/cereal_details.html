@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block body%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12-6 col-md-6 col-sm-6 col-xs-6">
+            <br>
+            <br>
+            <br>
+            
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="cereal_name">
+                <h2>{{cereal.cereal_name}} </h2></a>
+
+                <div class="picture">
+                    <img src="http://cliparts.co/cliparts/8cG/bo4/8cGbo4KLi.jpg">
+                </div>
+            </div>
+
+                <ul id="nutrition">
+                    <li>Calories: {{cereal.calories}}</li>
+                    <li>Protein: {{cereal.protein}}</li>
+                    <li>Fat: {{cereal.fat}}</li>
+                    <li>Sodium: {{cereal.sodium}}</li>
+                    <li>Dietary Fiber: {{cereal.dietary_fiber}}</li>
+                    <li>Carbohydrates: {{cereal.carbs}}</li>
+                    <li>Sugar: {{cereal.sugars}}</li>
+                    <li>Potassium: {{cereal.potassium}}</li>
+                    <li>Vitamins and Minerals: {{cereal.vitamins_and_minerals}}</li>
+                </ul>
+                
+        </div>
+    </div>
+</div>
+{% endblock %}
+

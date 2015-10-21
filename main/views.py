@@ -5,21 +5,76 @@ from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect  
 
 
-def detail_view(request, pk):
-    maker = Manufacturer.objects.get(pk=pk)
+def cereal_details(request, pk):
 
     context = {}
 
+    cereal = Cereal.objects.get(pk=pk)
+
+    context['cereal'] = cereal
+
+    return render_to_response('cereal_details.html', context, context_instance=RequestContext(request))
+
+
+def main_page(request):
+
+    context = {}
+
+    return render_to_response('main_page.html', context, context_instance=RequestContext(request))
+
+
+def cereal_types(request):
+
+    cereals = Cereal.objects.all()
+
+    context = {}
+
+    context['cereals'] = cereals
+
+    return render_to_response('cereal_types.html', context, context_instance=RequestContext(request))
+
+
+def brands(request):
+
+    makers = Manufacturer.objects.all()
+
+    context = {}
+
+    context['makers'] = makers
+
+    
+    return render_to_response('brands.html', context, context_instance=RequestContext(request))
+
+
+def brand_details(request, pk):
+
+    context = {}
+
+    maker = Manufacturer.objects.get(pk=pk)
+
     context['maker'] = maker
 
-    
 
-    
+    return render_to_response('brand_details.html', context, context_instance=RequestContext(request))
+
+
+def detail_view(request, pk):
+
+    makers = Manufacturer.objects.all()
+
+    cereals = Cereal.objects.all()
+
+    context = {}
+
+    context['makers'] = makers
+
+    context['cereals'] = cereals
 
     return render_to_response('detail_view.html', context, context_instance=RequestContext(request))
 
 
 def list_view(request):
+
     makers = Manufacturer.objects.all()
 
     cereals = Cereal.objects.all()
@@ -199,91 +254,91 @@ def delete_view(request, pk):
     # return render_to_response('delete_view.html', context, context_instance=RequestContext(request))
 
 
-def signup(request):
+# #def signup(request):
 
-    context = {}
+#     context = {}
 
-    form = UserSignUp()
-    context['form'] = form
+#     form = UserSignUp()
+#     context['form'] = form
 
-    if request.method == 'POST':
-        form = UserSignUp(request.POST)
-        if form.is_valid():
-            print form.cleaned_data
+#     if request.method == 'POST':
+#         form = UserSignUp(request.POST)
+#         if form.is_valid():
+#             print form.cleaned_data
 
-            name = form.cleaned_data['name']
-            email = form.cleaned_data['email']
-            password = form.cleaned_data['password']
+#             name = form.cleaned_data['name']
+#             email = form.cleaned_data['email']
+#             password = form.cleaned_data['password']
 
-            try:
-                new_user = User.objects.create_user(name, email, password)
-                context['valid'] = "Thank You For Signing Up!"
+#             try:
+#                 new_user = User.objects.create_user(name, email, password)
+#                 context['valid'] = "Thank You For Signing Up!"
 
-                auth_user = authenticate(username=name, password=password)
-                login(request, auth_user)
+#                 auth_user = authenticate(username=name, password=password)
+#                 login(request, auth_user)
 
-                return HttpResponseRedirect('/list_view/')
+#                 return HttpResponseRedirect('/list_view/')
 
-            except IntegrityError, e:
-                context['valid'] = "A User With That Name Already Exists"
+#             except IntegrityError, e:
+#                 context['valid'] = "A User With That Name Already Exists"
 
-        else:
-            context['valid'] = form.errors
+#         else:
+#             context['valid'] = form.errors
 
-    if request.method == 'GET':
-        context['valid'] = "Please Sign Up!"
+#     if request.method == 'GET':
+#         context['valid'] = "Please Sign Up!"
 
-    return render_to_response('signup.html', context, context_instance=RequestContext(request))
-
-
+#     return render_to_response('signup.html', context, context_instance=RequestContext(request))
 
 
-def login_view(request):
-
-    # #context = {}
-
-    # context['form'] = UserLogin()
-
-    # username = request.POST.get('username', None)
-    # password = request.POST.get('password', None)
-
-    # auth_user = authenticate(username=username, password=password)
-
-    # if auth_user is not None:
-    #     if auth_user.is_active:
-    #         login(request, auth_user)
-    #         context['valid'] = "Login Successful"
-
-    #         return HttpResponseRedirect('/home/')
-    #     else:
-    #         context['valid'] = "Invalid User"
-    # else:
-    #     context['valid'] = "Please enter a User Name"
 
 
-    # return render_to_response('login_view.html', context, context_instance=RequestContext(request))
+# #def login_view(request):
 
-    # maker = Manufacturer.objects.get(pk=pk)
+#     # #context = {}
 
-    context = {}
+#     # context['form'] = UserLogin()
 
-    context['maker'] = maker 
+#     # username = request.POST.get('username', None)
+#     # password = request.POST.get('password', None)
 
-    return render_to_response('login_view.html', context, context_instance=RequestContext(request))
+#     # auth_user = authenticate(username=username, password=password)
+
+#     # if auth_user is not None:
+#     #     if auth_user.is_active:
+#     #         login(request, auth_user)
+#     #         context['valid'] = "Login Successful"
+
+#     #         return HttpResponseRedirect('/home/')
+#     #     else:
+#     #         context['valid'] = "Invalid User"
+#     # else:
+#     #     context['valid'] = "Please enter a User Name"
 
 
-def logout_view(request):
-    maker = Manufacturer.objects.get(pk=pk)
+#     # return render_to_response('login_view.html', context, context_instance=RequestContext(request))
 
-    context = {}
+#     # maker = Manufacturer.objects.get(pk=pk)
 
-    context['maker'] = maker 
+#     context = {}
 
-    return render_to_response('logout_view.html', context, context_instance=RequestContext(request))
+#     context['maker'] = maker 
+
+#     return render_to_response('login_view.html', context, context_instance=RequestContext(request))
 
 
-def logout_view(request):
+# # # def logout_view(request):
+# #     maker = Manufacturer.objects.get(pk=pk)
 
-    logout(request)
+# #     context = {}
 
-    return HttpResponseRedirect('/login_view/')
+# #     context['maker'] = maker 
+
+# #     return render_to_response('logout_view.html', context, context_instance=RequestContext(request))
+
+
+# #def logout_view(request):
+
+#     logout(request)
+
+#     return HttpResponseRedirect('/login_view/')

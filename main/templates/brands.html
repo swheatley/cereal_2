@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block body %} 
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <br>
+                <br>
+                <br>
+            <div class="long_list">
+                {% for manufacturer in makers %}
+                    <a href="/brand_details/{{ manufacturer.pk }}/">{{manufacturer.name}}</a>
+                    <br>
+
+                {% endfor %}
+
+            <br>
+            <div class="homepage">
+                <a href="/main_page"/> ~ Homepage ~</a>
+                <h3>{{manufacturer.name}}</h3>
+            </div>
+        
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
