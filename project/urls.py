@@ -34,6 +34,9 @@ urlpatterns = [
     url(r'^create_view/$','main.views.create_view'),
     url(r'^create_view2/$','main.views.create_view2'),
 
+    url(r'^json_response/$', 'main.views.json_response'),
+    url(r'^ajax_template/$', 'main.views.ajax_search'),
+
     #url(r'^update_view/(?P<pk>\d+)/$', 'main.view.update_view'),
     #url(r'^delete_view/(?P<pk>\d+)/$', 'main.view.delete_view'),
 

@@ -11,6 +11,7 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 <link href="{% static 'css/mystyle.css' %}" rel="stylesheet"/>
+
 </head>  
     <body>
 <!-- we are in cereal_list.html -->  
@@ -35,7 +36,7 @@
                             <ul class="nav navbar-nav">
                                 <li class="links"><a href="/main_page/">Cereal Websites </a></li>
                                 <li class="links"> <a href="/cereal_types/{{container.pk}}">Cereals </a> </li>
-                                <li class="link"><a href="/brand/">Brands </a></li>
+                                <li class="links"><a href="/brand/">Brands </a></li>
                             </ul>
                         </div>
                     <!-- /.navbar-collapse -->
@@ -70,6 +71,43 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static '//code.jquery.com/jquery-1.11.3.min.js' %}"></script>
+    <script src="{% static '//code.jquery.com/jquery-migrate-1.2.1.min.js' %}"></script>
+    <script type="text/javascript">
+       $(document).click(function(){
+            $('img').toggle("explode");
 
+        // //$(".navbar-nav").on('click', function(){
+        //     $('.links').append('<li>Make a List</li>');
+
+
+        });
+
+
+
+
+       });
+        
+  
+
+            
+            
+
+            
+
+
+
+      
+
+        // //$('#cereals').on( 'mouseenter', function(e){
+        //     if(e.target.id){
+        //         ${'#'+e.target.id).children().fadeIn();
+
+        //     }
+
+
+       
+         
+    </script>
 </body>
 </html>  

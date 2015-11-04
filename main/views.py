@@ -2,7 +2,26 @@ from django.shortcuts import render, render_to_response
 from django.contrib.auth import authenticate, login, logout
 from main.models import Manufacturer, Cereal
 from django.template import RequestContext
-from django.http import HttpResponse, HttpResponseRedirect  
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse 
+
+
+def ajax_search(request):
+    context = {}
+
+    return render_to_response('ajax_template.html', context, context_instance=RequestContext(request))
+
+
+def json_response(request):
+    search_string = request.GET.get('search', '')
+
+    objects = Cereal.objects.filter(cereal_name__icontains=search_string)
+
+    object_list = []
+
+    for obj in objects:
+        object_list.append(obj.cereal_name)
+
+    return JsonResponse(object_list, safe=False)
 
 
 def cereal_details(request, pk):
@@ -342,3 +361,6 @@ def delete_view(request, pk):
 #     logout(request)
 
 #     return HttpResponseRedirect('/login_view/')
+
+
+
