@@ -30,7 +30,7 @@ urlpatterns = [
     url(r'^cereal_details/(?P<pk>\d+)/$', 'main.views.cereal_details'),
     url(r'^brand/$', 'main.views.brands'),
     url(r'^brand_details/(?P<pk>\d+)/$', 'main.views.brand_details'),
-    url(r'^main_page/$', 'main.views.main_page'),
+    url(r'^$', 'main.views.main_page'),
 
     
     url(r'^create_view/$','main.views.create_view'),
