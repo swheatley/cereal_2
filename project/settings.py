@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     #'Pillow',
     'main',
+    'rest_framework'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -82,7 +83,7 @@ DATABASES = {
         'NAME': 'cereal_2',
         'HOST': '127.0.0.1',
         'USER': 'root',
-        'PASSWORD':'1jjackson!',
+        'PASSWORD':'root',
         'PORT': ''
     }
 }

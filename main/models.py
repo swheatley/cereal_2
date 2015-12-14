@@ -1,4 +1,6 @@
 from django.db import models
+from pygments.lexers import get_all_lexers
+from pygments.styles import get_all_styles
 
 
 class Manufacturer(models.Model):
@@ -21,7 +23,12 @@ class Cereal(models.Model):
     potassium = models.IntegerField(null=True, blank=True)
     vitamins_and_minerals = models.IntegerField(null=True, blank=True)
 
+    # class Meta:
+         #ordering = ('created',)
+
     def __unicode__(self):
         return self.cereal_name
+
+
 
 

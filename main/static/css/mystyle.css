@@ -10,16 +10,9 @@ a{
     
     
 }
-.picture img{
-    margin-top: 60px;
-    height: 200px;
-    width: 300px;
-    border-radius: 20px;
 
-}
 .long_list{
     text-align: center;
-
     margin-top: 60px;
 
 }
@@ -41,12 +34,7 @@ a{
 #cereals a{
     padding: 20px;
 }
-.cereal_name h2{
-    margin-top: 20px;
-    margin-left: 50px;
-    border-color: black;
-    border-radius: 10px;
-}
+
 a:hover{
     color: white;
     background: hotpink;
@@ -57,6 +45,7 @@ a:hover{
 h2 {
 
     font-size: 24px;
+    
     
 
     
@@ -94,8 +83,9 @@ h2 {
 
 }
 ul{
-    margin-top: -260px;
-    float: right;
+    
+    float: left;
+
 }
 .homepage{
     padding: 20px;
